@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ob4376k1ukdx"]
+
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/world_item.gd" id="1_3ggi8"]
+[ext_resource type="Texture2D" uid="uid://c4it65p0cmjni" path="res://items/2d_coinkun/coinkun.png" id="2_12qa6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s37a4"]
+radius = 16.0
+
+[node name="CoinKun" type="Node"]
+script = ExtResource("1_3ggi8")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_s37a4")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 1
+texture = ExtResource("2_12qa6")

@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=3 format=3 uid="uid://c361652pr2j1r"]
+[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=4 format=3 uid="uid://c361652pr2j1r"]
 
 [ext_resource type="Texture2D" uid="uid://d360ue52orb3v" path="res://items/2d_gem/gem.png" id="1_8ych7"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_descriptor.gd" id="2_3qbrc"]
+[ext_resource type="PackedScene" uid="uid://c07vdq3fruvcm" path="res://items/2d_gem/world_item.tscn" id="3_4tb1u"]
 
 [resource]
 script = ExtResource("2_3qbrc")
 item_name = "2d_gem"
 max_stack_size = 99
+world_item_scene = ExtResource("3_4tb1u")
 display_name = "Gemstone"
 category = "material"
 preview_icon = ExtResource("1_8ych7")

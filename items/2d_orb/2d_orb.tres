@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=3 format=3 uid="uid://cxe1n5umajgcm"]
+[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=4 format=3 uid="uid://cxe1n5umajgcm"]
 
 [ext_resource type="Texture2D" uid="uid://clgfwmdyvkj7v" path="res://items/2d_orb/orb.png" id="1_d8not"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_descriptor.gd" id="2_uiygn"]
+[ext_resource type="PackedScene" uid="uid://ds3jc12ubbdab" path="res://items/2d_orb/world_item.tscn" id="3_x1eeh"]
 
 [resource]
 script = ExtResource("2_uiygn")
 item_name = "2d_orb"
 max_stack_size = 99
+world_item_scene = ExtResource("3_x1eeh")
 display_name = "Orb"
 category = "material"
 preview_icon = ExtResource("1_d8not")
