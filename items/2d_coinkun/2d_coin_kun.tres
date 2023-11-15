@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=3 format=3 uid="uid://cdvx38vno2huy"]
+
+[ext_resource type="Texture2D" uid="uid://c4it65p0cmjni" path="res://items/2d_coinkun/coinkun.png" id="1_rat3o"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_descriptor.gd" id="2_duh25"]
+
+[resource]
+script = ExtResource("2_duh25")
+item_name = "2d_coin_kun"
+max_stack_size = 99
+display_name = "Coin-kun"
+category = "currency"
+preview_icon = ExtResource("1_rat3o")

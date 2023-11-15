@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=3 format=3 uid="uid://cg8l6p2yoerro"]
+
+[ext_resource type="Texture2D" uid="uid://dyrsx1bbyeqcx" path="res://items/2d_potion/potion.png" id="1_6ncjn"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_descriptor.gd" id="2_dms4e"]
+
+[resource]
+script = ExtResource("2_dms4e")
+item_name = "2d_potion"
+max_stack_size = 4
+display_name = "Potion"
+category = "consumable"
+preview_icon = ExtResource("1_6ncjn")

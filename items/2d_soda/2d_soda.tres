@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=3 format=3 uid="uid://b3qg1seuri0yv"]
+
+[ext_resource type="Texture2D" uid="uid://c2cn8cvm27wkn" path="res://items/2d_soda/soda.png" id="1_71et2"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_descriptor.gd" id="2_lrnlc"]
+
+[resource]
+script = ExtResource("2_lrnlc")
+item_name = "2d_soda"
+max_stack_size = 2
+display_name = "Soda"
+category = "consumable"
+preview_icon = ExtResource("1_71et2")

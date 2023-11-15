@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemDescriptor" load_steps=3 format=3 uid="uid://dloljiru86tl2"]
+
+[ext_resource type="Texture2D" uid="uid://dvxk11f3dm7tc" path="res://items/2d_sword/sword.png" id="1_up5pt"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_descriptor.gd" id="2_stbqe"]
+
+[resource]
+script = ExtResource("2_stbqe")
+item_name = "2d_sword"
+max_stack_size = 1
+display_name = "Developer Blade"
+category = "tool"
+preview_icon = ExtResource("1_up5pt")
