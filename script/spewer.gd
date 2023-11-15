@@ -41,3 +41,4 @@ func spew() -> void:
 	var world_item: WorldItem2D = item.get_world_item()
 	world_item.global_position = $ExitPoint.global_position
 	world_item.global_rotation = $ExitPoint.global_rotation
+	world_item.apply_impulse(Vector2.RIGHT.rotated($ExitPoint.global_rotation) * 700)
