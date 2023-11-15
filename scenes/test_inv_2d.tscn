@@ -76,6 +76,59 @@ sources/1 = SubResource("TileSetScenesCollectionSource_tjq4n")
 offset = Vector2(256, 144)
 zoom = Vector2(2, 2)
 
+[node name="Collector2" type="Node2D" parent="."]
+position = Vector2(448, 96)
+rotation = -1.5708
+
+[node name="MachineBlock" parent="Collector2" instance=ExtResource("2_pi8lo")]
+position = Vector2(16, 16)
+
+[node name="CatcherBlock" parent="Collector2" instance=ExtResource("3_muhhq")]
+position = Vector2(16, -16)
+
+[node name="Pumper2" parent="." node_paths=PackedStringArray("pipe_to_push_to", "to_pull_from") instance=ExtResource("11_ojal2")]
+position = Vector2(448, 96)
+pipe_to_push_to = NodePath("../Pipe7")
+to_pull_from = NodePath("../Collector2/CatcherBlock/ItemInventory")
+
+[node name="Pipe7" parent="." node_paths=PackedStringArray("pipe_to_push_to") instance=ExtResource("12_qgc8j")]
+position = Vector2(448, 128)
+pipe_to_push_to = NodePath("../Pipe8")
+
+[node name="Pipe8" parent="." node_paths=PackedStringArray("pipe_to_push_to") instance=ExtResource("12_qgc8j")]
+position = Vector2(448, 160)
+pipe_to_push_to = NodePath("../Pipe9")
+
+[node name="Pipe9" parent="." node_paths=PackedStringArray("pipe_to_push_to") instance=ExtResource("12_qgc8j")]
+position = Vector2(448, 192)
+pipe_to_push_to = NodePath("../Pipe10")
+
+[node name="Pipe10" parent="." node_paths=PackedStringArray("pipe_to_push_to") instance=ExtResource("12_qgc8j")]
+position = Vector2(448, 224)
+pipe_to_push_to = NodePath("../Pipe11")
+
+[node name="Pipe11" parent="." node_paths=PackedStringArray("to_push_to") instance=ExtResource("12_qgc8j")]
+position = Vector2(416, 224)
+to_push_to = NodePath("../Collector3/CatcherBlock/ItemInventory")
+
+[node name="Collector3" type="Node2D" parent="."]
+position = Vector2(384, 224)
+
+[node name="MachineBlock" parent="Collector3" instance=ExtResource("2_pi8lo")]
+position = Vector2(16, 16)
+
+[node name="CatcherBlock" parent="Collector3" instance=ExtResource("3_muhhq")]
+position = Vector2(16, -16)
+
+[node name="Pumper3" parent="." node_paths=PackedStringArray("pipe_to_push_to", "to_pull_from") instance=ExtResource("11_ojal2")]
+position = Vector2(352, 224)
+pipe_to_push_to = NodePath("../Pipe12")
+to_pull_from = NodePath("../Collector3/CatcherBlock/ItemInventory")
+
+[node name="Pipe12" parent="." node_paths=PackedStringArray("to_push_to") instance=ExtResource("12_qgc8j")]
+position = Vector2(320, 224)
+to_push_to = NodePath("../Collector/CatcherBlock/ItemInventory")
+
 [node name="Collector" type="Node2D" parent="."]
 position = Vector2(288, 224)
 
@@ -154,4 +207,6 @@ tile_set = SubResource("TileSet_22ovw")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 1, 196608, 1, 1, 196608, 2, 1, 196608, 3, 1, 196608, 4, 1, 196608, 5, 1, 196608, 6, 1, 196608, 7, 1, 196608, 8, 1, 196608, 9, 1, 196608, 10, 1, 196608, 11, 1, 196608, 12, 1, 196608, 13, 1, 196608, 14, 1, 196608, 15, 1, 196608, 65551, 1, 196608, 131087, 1, 196608, 196623, 1, 196608, 262159, 1, 196608, 327695, 1, 196608, 393231, 1, 196608, 458767, 1, 196608, 524303, 1, 196608, 524302, 1, 196608, 524301, 1, 196608, 524300, 1, 196608, 524299, 1, 196608, 524298, 1, 196608, 524297, 1, 196608, 524296, 1, 196608, 524295, 1, 196608, 524294, 1, 196608, 524293, 1, 196608, 524292, 1, 196608, 524291, 1, 196608, 524290, 1, 196608, 524288, 1, 196608, 458752, 1, 196608, 393216, 1, 196608, 327680, 1, 196608, 262144, 1, 196608, 196608, 1, 196608, 131072, 1, 196608, 65536, 1, 196608, 524289, 1, 196608, 458753, 1, 262144, 393217, 1, 262144, 393218, 1, 262144, 458754, 1, 262144)
 
+[editable path="Collector2/CatcherBlock"]
+[editable path="Collector3/CatcherBlock"]
 [editable path="Collector/CatcherBlock"]
