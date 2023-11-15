@@ -7,10 +7,38 @@
 [sub_resource type="GDScript" id="GDScript_oom6s"]
 script/source = "extends StaticBody2D
 
+#
+#	Private Variables
+#
+
+var _items_to_put: Array[WorldItem2D] = []
+
+#
+#	Godot Functions
+#
+
+func _physics_process(_delta):
+	while _items_to_put.size() > 0:
+		var item = _items_to_put[0]
+		var error = item.get_item_instance().put_in_inventory($ItemInventory)
+		
+		if error != ItemInstance.InstanceError.OK:
+			return
+		
+		_items_to_put.pop_front()
+	
+#
+#	Signals
+#
+
 func _on_area_2d_body_entered(body):
 	if body is WorldItem2D:
 		var item = body as WorldItem2D
-		item.get_item_instance().put_in_inventory($ItemInventory)
+		_items_to_put.append(item)
+
+func _on_area_2d_body_exited(body):
+	if body in _items_to_put:
+		_items_to_put.erase(body)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxlv0"]
@@ -82,3 +110,4 @@ columns = 1
 inventory = NodePath("../ItemInventory")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

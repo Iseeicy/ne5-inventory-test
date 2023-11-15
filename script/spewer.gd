@@ -29,11 +29,14 @@ func spew() -> void:
 		print("Nothing to spew!")
 		return
 	
-	# Grab the first item we can spew
-	var item = inventory.peek_last_filled_slot()
+	# Grab the first item we can spew, and try to split the stack. If we can't
+	# split the stack, then just use the whole thing.
+	var item_stack = inventory.peek_last_filled_slot()
+	var item = item_stack.split_stack(1)
+	if item == null: item = item_stack
 	
 	# Place the item in the world
-	var error = item.put_in_world()
+	var error = item.put_in_world(get_window())
 	if error != ItemInstance.InstanceError.OK:
 		printerr("Failed to spew item: %s" % error)
 		return
