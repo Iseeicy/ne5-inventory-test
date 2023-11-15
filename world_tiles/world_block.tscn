@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct7gwj0amnv72"]
+
+[ext_resource type="Texture2D" uid="uid://dkpm5qcgfs8vp" path="res://world_tiles/block.png" id="1_dhgdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw18b"]
+size = Vector2(32, 32)
+
+[node name="WorldBlock" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vw18b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_dhgdv")

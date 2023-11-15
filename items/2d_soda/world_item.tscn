@@ -1,19 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://drgpviv5y1uws"]
 
-[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/world_item.gd" id="1_j3ks3"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/world_item_2d.gd" id="1_4m5ff"]
 [ext_resource type="Texture2D" uid="uid://c2cn8cvm27wkn" path="res://items/2d_soda/soda.png" id="2_knprt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s37a4"]
 radius = 16.0
 
-[node name="Soda" type="Node"]
-script = ExtResource("1_j3ks3")
+[node name="Soda" type="RigidBody2D"]
+script = ExtResource("1_4m5ff")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s37a4")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_knprt")

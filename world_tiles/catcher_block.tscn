@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dddx3s3pp6f55"]
+
+[ext_resource type="Texture2D" uid="uid://bik3e3p8ndh1v" path="res://world_tiles/catcher.png" id="1_fgjhs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxlv0"]
+size = Vector2(32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24jwt"]
+atlas = ExtResource("1_fgjhs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjwjv"]
+atlas = ExtResource("1_fgjhs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5pjl"]
+atlas = ExtResource("1_fgjhs")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbske"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24jwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjwjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5pjl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CatcherBlock" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_fxlv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_kbske")
+frame = 1
+frame_progress = 0.468987

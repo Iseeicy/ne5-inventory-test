@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://r873c1ghelug"]
+
+[ext_resource type="Texture2D" uid="uid://c50ntlb7axmqt" path="res://world_tiles/machine_block.png" id="1_y0mtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw18b"]
+size = Vector2(32, 32)
+
+[node name="MachineBlock" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vw18b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_y0mtc")

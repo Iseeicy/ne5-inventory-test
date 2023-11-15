@@ -1,20 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bupmv7xovcb0o"]
 
-[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/world_item.gd" id="1_tjv16"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/world_item_2d.gd" id="1_6vcsy"]
 [ext_resource type="Texture2D" uid="uid://dyrsx1bbyeqcx" path="res://items/2d_potion/potion.png" id="2_dcmpf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s37a4"]
 radius = 16.0
 
-[node name="Potion" type="Node"]
-script = ExtResource("1_tjv16")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Potion" type="RigidBody2D"]
 lock_rotation = true
+script = ExtResource("1_6vcsy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s37a4")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_dcmpf")

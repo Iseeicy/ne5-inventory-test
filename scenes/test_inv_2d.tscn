@@ -1,3 +1,115 @@
-[gd_scene format=3 uid="uid://b6e7bgdw2vnd7"]
+[gd_scene load_steps=16 format=3 uid="uid://b6e7bgdw2vnd7"]
+
+[ext_resource type="PackedScene" uid="uid://ct7gwj0amnv72" path="res://world_tiles/world_block.tscn" id="1_3kvox"]
+[ext_resource type="Script" path="res://script/spewer.gd" id="1_8jk4c"]
+[ext_resource type="Texture2D" uid="uid://b7fcg7i3n1mtq" path="res://world_tiles/spewer.png" id="2_6mb35"]
+[ext_resource type="PackedScene" uid="uid://r873c1ghelug" path="res://world_tiles/machine_block.tscn" id="2_pi8lo"]
+[ext_resource type="PackedScene" uid="uid://dddx3s3pp6f55" path="res://world_tiles/catcher_block.tscn" id="3_muhhq"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="3_ttqde"]
+[ext_resource type="Resource" uid="uid://cxe1n5umajgcm" path="res://items/2d_orb/2d_orb.tres" id="4_rrybu"]
+[ext_resource type="Resource" uid="uid://c361652pr2j1r" path="res://items/2d_gem/2d_gem.tres" id="5_f1vsw"]
+[ext_resource type="Resource" uid="uid://b3qg1seuri0yv" path="res://items/2d_soda/2d_soda.tres" id="6_7tpow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liyvi"]
+atlas = ExtResource("2_6mb35")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avdq3"]
+atlas = ExtResource("2_6mb35")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bs4cu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liyvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avdq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_l0307"]
+script/source = "extends Node
+
+#
+#	Exports
+#
+
+@export var inventory: ItemInventory = null
+@export var item_to_fill: ItemDescriptor = null
+@export var count: int = 5
+
+#
+#	Godot Functions
+#
+
+func _ready():
+	var items = item_to_fill.create_many_instances(count)
+	
+	for item in items:
+		var error = item.put_in_inventory(inventory)
+		if error != ItemInstance.InstanceError.OK:
+			printerr(\"Failed to fit %s (%s)\" % [item, error])
+			item.queue_free()
+"
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tjq4n"]
+resource_name = "Blocks"
+scenes/3/scene = ExtResource("1_3kvox")
+scenes/4/scene = ExtResource("2_pi8lo")
+scenes/5/scene = ExtResource("3_muhhq")
+
+[sub_resource type="TileSet" id="TileSet_22ovw"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetScenesCollectionSource_tjq4n")
 
 [node name="TestInv2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(256, 144)
+zoom = Vector2(2, 2)
+
+[node name="PlayerMachine" type="Node2D" parent="."]
+position = Vector2(64, 224)
+
+[node name="Spewer" type="Node2D" parent="PlayerMachine" node_paths=PackedStringArray("inventory")]
+script = ExtResource("1_8jk4c")
+inventory = NodePath("../ItemInventory")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerMachine/Spewer"]
+texture_filter = 1
+position = Vector2(40, 0)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_bs4cu")
+autoplay = "default"
+
+[node name="ExitPoint" type="Node2D" parent="PlayerMachine/Spewer"]
+position = Vector2(48, 0)
+
+[node name="ItemInventory" type="Node" parent="PlayerMachine"]
+script = ExtResource("3_ttqde")
+size = 10
+
+[node name="InventoryFiller" type="Node" parent="PlayerMachine" node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_l0307")
+inventory = NodePath("../ItemInventory")
+item_to_fill = ExtResource("4_rrybu")
+
+[node name="InventoryFiller2" type="Node" parent="PlayerMachine" node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_l0307")
+inventory = NodePath("../ItemInventory")
+item_to_fill = ExtResource("5_f1vsw")
+
+[node name="InventoryFiller3" type="Node" parent="PlayerMachine" node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_l0307")
+inventory = NodePath("../ItemInventory")
+item_to_fill = ExtResource("6_7tpow")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_22ovw")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 1, 196608, 1, 1, 196608, 2, 1, 196608, 3, 1, 196608, 4, 1, 196608, 5, 1, 196608, 6, 1, 196608, 7, 1, 196608, 8, 1, 196608, 9, 1, 196608, 10, 1, 196608, 11, 1, 196608, 12, 1, 196608, 13, 1, 196608, 14, 1, 196608, 15, 1, 196608, 65551, 1, 196608, 131087, 1, 196608, 196623, 1, 196608, 262159, 1, 196608, 327695, 1, 196608, 393231, 1, 196608, 458767, 1, 196608, 524303, 1, 196608, 524302, 1, 196608, 524301, 1, 196608, 524300, 1, 196608, 524299, 1, 196608, 524298, 1, 196608, 524297, 1, 196608, 524296, 1, 196608, 524295, 1, 196608, 524294, 1, 196608, 524293, 1, 196608, 524292, 1, 196608, 524291, 1, 196608, 524290, 1, 196608, 524288, 1, 196608, 458752, 1, 196608, 393216, 1, 196608, 327680, 1, 196608, 262144, 1, 196608, 196608, 1, 196608, 131072, 1, 196608, 65536, 1, 196608, 524289, 1, 196608, 458753, 1, 262144, 393217, 1, 262144, 393218, 1, 262144, 458754, 1, 262144)
