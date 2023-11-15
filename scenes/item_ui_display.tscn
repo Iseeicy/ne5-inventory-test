@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bksjcse6lusu8"]
+
+[ext_resource type="Script" path="res://scenes/debug_item_ui_display.gd" id="1_t7wyl"]
+[ext_resource type="Texture2D" uid="uid://opi2v3s4eiuq" path="res://items/empty.png" id="2_q1udi"]
+
+[node name="ItemUIDisplay" type="AspectRatioContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+stretch_mode = 0
+alignment_horizontal = 0
+alignment_vertical = 0
+script = ExtResource("1_t7wyl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_q1udi")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 2

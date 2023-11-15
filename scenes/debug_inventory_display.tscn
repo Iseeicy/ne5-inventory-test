@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://6iygd81rvha7"]
+
+[ext_resource type="Script" path="res://scenes/debug_inventory_display.gd" id="1_27kgy"]
+
+[node name="DebugInventoryDisplay" type="PanelContainer"]
+z_index = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+script = ExtResource("1_27kgy")
+columns = 3
+inventory = NodePath("")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 2

@@ -1,6 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dddx3s3pp6f55"]
+[gd_scene load_steps=11 format=3 uid="uid://dddx3s3pp6f55"]
 
 [ext_resource type="Texture2D" uid="uid://bik3e3p8ndh1v" path="res://world_tiles/catcher.png" id="1_fgjhs"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="2_w514e"]
+[ext_resource type="PackedScene" uid="uid://6iygd81rvha7" path="res://scenes/debug_inventory_display.tscn" id="3_pnfqc"]
+
+[sub_resource type="GDScript" id="GDScript_oom6s"]
+script/source = "extends StaticBody2D
+
+func _on_area_2d_body_entered(body):
+	if body is WorldItem2D:
+		var item = body as WorldItem2D
+		item.get_item_instance().put_in_inventory($ItemInventory)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxlv0"]
 size = Vector2(32, 16)
@@ -34,7 +45,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skhb8"]
+size = Vector2(30, 14)
+
 [node name="CatcherBlock" type="StaticBody2D"]
+script = SubResource("GDScript_oom6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -43,5 +58,27 @@ shape = SubResource("RectangleShape2D_fxlv0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_kbske")
+autoplay = "default"
 frame = 1
 frame_progress = 0.468987
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_skhb8")
+
+[node name="ItemInventory" type="Node" parent="."]
+script = ExtResource("2_w514e")
+size = 2
+
+[node name="DebugInventoryDisplay" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("3_pnfqc")]
+offset_left = -10.0
+offset_top = 18.0
+offset_right = 10.0
+offset_bottom = 18.0
+columns = 1
+inventory = NodePath("../ItemInventory")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6e7bgdw2vnd7"]
+[gd_scene load_steps=17 format=3 uid="uid://b6e7bgdw2vnd7"]
 
 [ext_resource type="PackedScene" uid="uid://ct7gwj0amnv72" path="res://world_tiles/world_block.tscn" id="1_3kvox"]
 [ext_resource type="Script" path="res://script/spewer.gd" id="1_8jk4c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cxe1n5umajgcm" path="res://items/2d_orb/2d_orb.tres" id="4_rrybu"]
 [ext_resource type="Resource" uid="uid://c361652pr2j1r" path="res://items/2d_gem/2d_gem.tres" id="5_f1vsw"]
 [ext_resource type="Resource" uid="uid://b3qg1seuri0yv" path="res://items/2d_soda/2d_soda.tres" id="6_7tpow"]
+[ext_resource type="PackedScene" uid="uid://6iygd81rvha7" path="res://scenes/debug_inventory_display.tscn" id="7_xjqm4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_liyvi"]
 atlas = ExtResource("2_6mb35")
@@ -92,7 +93,7 @@ position = Vector2(48, 0)
 
 [node name="ItemInventory" type="Node" parent="PlayerMachine"]
 script = ExtResource("3_ttqde")
-size = 10
+size = 6
 
 [node name="InventoryFiller" type="Node" parent="PlayerMachine" node_paths=PackedStringArray("inventory")]
 script = SubResource("GDScript_l0307")
@@ -109,7 +110,19 @@ script = SubResource("GDScript_l0307")
 inventory = NodePath("../ItemInventory")
 item_to_fill = ExtResource("6_7tpow")
 
+[node name="DebugInventoryDisplay" parent="PlayerMachine" node_paths=PackedStringArray("inventory") instance=ExtResource("7_xjqm4")]
+inventory = NodePath("../ItemInventory")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_22ovw")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 1, 196608, 1, 1, 196608, 2, 1, 196608, 3, 1, 196608, 4, 1, 196608, 5, 1, 196608, 6, 1, 196608, 7, 1, 196608, 8, 1, 196608, 9, 1, 196608, 10, 1, 196608, 11, 1, 196608, 12, 1, 196608, 13, 1, 196608, 14, 1, 196608, 15, 1, 196608, 65551, 1, 196608, 131087, 1, 196608, 196623, 1, 196608, 262159, 1, 196608, 327695, 1, 196608, 393231, 1, 196608, 458767, 1, 196608, 524303, 1, 196608, 524302, 1, 196608, 524301, 1, 196608, 524300, 1, 196608, 524299, 1, 196608, 524298, 1, 196608, 524297, 1, 196608, 524296, 1, 196608, 524295, 1, 196608, 524294, 1, 196608, 524293, 1, 196608, 524292, 1, 196608, 524291, 1, 196608, 524290, 1, 196608, 524288, 1, 196608, 458752, 1, 196608, 393216, 1, 196608, 327680, 1, 196608, 262144, 1, 196608, 196608, 1, 196608, 131072, 1, 196608, 65536, 1, 196608, 524289, 1, 196608, 458753, 1, 262144, 393217, 1, 262144, 393218, 1, 262144, 458754, 1, 262144)
+
+[node name="Collector" type="Node2D" parent="."]
+position = Vector2(288, 224)
+
+[node name="MachineBlock" parent="Collector" instance=ExtResource("2_pi8lo")]
+position = Vector2(16, 16)
+
+[node name="CatcherBlock" parent="Collector" instance=ExtResource("3_muhhq")]
+position = Vector2(16, -16)
