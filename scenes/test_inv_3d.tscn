@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7yv06xkeyju6"]
+
+[ext_resource type="Script" path="res://script/test_3d/3d_ui_inventory.gd" id="1_2tfa2"]
+[ext_resource type="PackedScene" uid="uid://h06si7vi0ta5" path="res://scenes/3d_ui_item_section.tscn" id="2_ktws3"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/filters/item_filter_by_category.gd" id="3_d6jyw"]
+[ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="3_w2lf4"]
+[ext_resource type="Resource" uid="uid://c361652pr2j1r" path="res://items/2d_gem/2d_gem.tres" id="5_hdyw7"]
+[ext_resource type="Resource" uid="uid://dloljiru86tl2" path="res://items/2d_sword/2d_sword.tres" id="6_8183w"]
+[ext_resource type="Resource" uid="uid://cg8l6p2yoerro" path="res://items/2d_potion/2d_potion.tres" id="7_skobt"]
+
+[sub_resource type="Resource" id="Resource_8si74"]
+script = ExtResource("3_d6jyw")
+regex_string = "tool"
+
+[sub_resource type="Resource" id="Resource_yccqf"]
+script = ExtResource("3_d6jyw")
+regex_string = "material"
+
+[sub_resource type="Resource" id="Resource_emt5b"]
+script = ExtResource("3_d6jyw")
+regex_string = "consumable"
+
+[sub_resource type="GDScript" id="GDScript_rnpob"]
+script/source = "extends Node
+
+#
+#	Exports
+#
+
+@export var inventory: ItemInventory = null
+@export var item_to_fill: ItemDescriptor = null
+@export var count: int = 5
+
+#
+#	Godot Functions
+#
+
+func _ready():
+	var items = item_to_fill.create_many_instances(count)
+	
+	for item in items:
+		var error = item.put_in_inventory(inventory)
+		if error != ItemInstance.InstanceError.OK:
+			printerr(\"Failed to fit %s (%s)\" % [item, error])
+			item.queue_free()
+"
+
+[node name="test_inv_3d" type="Node3D"]
+
+[node name="InventoryUI3D" type="Control" parent="." node_paths=PackedStringArray("inventory", "sections")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tfa2")
+inventory = NodePath("../PlayerInventory")
+sections = [NodePath("ItemSlots/ItemSectionUI3D"), NodePath("ItemSlots/ItemSectionUI3D2"), NodePath("ItemSlots/ItemSectionUI3D3")]
+
+[node name="ItemSlots" type="HBoxContainer" parent="InventoryUI3D"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="ItemSectionUI3D" parent="InventoryUI3D/ItemSlots" instance=ExtResource("2_ktws3")]
+layout_mode = 2
+section_name = "Tools"
+filter = SubResource("Resource_8si74")
+
+[node name="ItemSectionUI3D2" parent="InventoryUI3D/ItemSlots" instance=ExtResource("2_ktws3")]
+layout_mode = 2
+section_name = "Materials"
+filter = SubResource("Resource_yccqf")
+
+[node name="ItemSectionUI3D3" parent="InventoryUI3D/ItemSlots" instance=ExtResource("2_ktws3")]
+layout_mode = 2
+section_name = "Consumable"
+filter = SubResource("Resource_emt5b")
+
+[node name="PlayerInventory" type="Node" parent="."]
+script = ExtResource("3_w2lf4")
+
+[node name="AddItems" type="Node" parent="." node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_rnpob")
+inventory = NodePath("../PlayerInventory")
+item_to_fill = ExtResource("5_hdyw7")
+
+[node name="AddItems2" type="Node" parent="." node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_rnpob")
+inventory = NodePath("../PlayerInventory")
+item_to_fill = ExtResource("5_hdyw7")
+
+[node name="AddItems3" type="Node" parent="." node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_rnpob")
+inventory = NodePath("../PlayerInventory")
+item_to_fill = ExtResource("6_8183w")
+count = 1
+
+[node name="AddItems4" type="Node" parent="." node_paths=PackedStringArray("inventory")]
+script = SubResource("GDScript_rnpob")
+inventory = NodePath("../PlayerInventory")
+item_to_fill = ExtResource("7_skobt")
+
+[connection signal="slot_updated" from="PlayerInventory" to="InventoryUI3D" method="_on_player_inventory_slot_updated"]
