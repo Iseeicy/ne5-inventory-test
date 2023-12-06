@@ -1,6 +1,6 @@
 @tool
 extends VBoxContainer
-class_name UIItemSection3D
+class_name FPCE_ItemSection
 
 @export var section_name: String = "":
 	set(value):
@@ -12,7 +12,7 @@ class_name UIItemSection3D
 
 @onready var _preview_parent = $VBoxContainer
 
-var _spawned_previews: Array[UIItemPreview3D] = []
+var _spawned_previews: Array[FPCE_ItemPreview] = []
 
 #
 #	Public Functions
@@ -23,7 +23,7 @@ func add_item(item: ItemInstance) -> void:
 	_spawned_previews.push_back(new_preview)
 	
 func remove_item(item: ItemInstance) -> void:
-	var to_remove: Array[UIItemPreview3D] = []
+	var to_remove: Array[FPCE_ItemPreview] = []
 	for preview in _spawned_previews:
 		if preview.item == item: 
 			to_remove.push_back(preview)
@@ -36,7 +36,7 @@ func remove_item(item: ItemInstance) -> void:
 #	Private Functions
 #
 
-func _spawn_item_preview(item: ItemInstance) -> UIItemPreview3D:
+func _spawn_item_preview(item: ItemInstance) -> FPCE_ItemPreview:
 	var new_preview = item_preview_scene.instantiate()
 	_preview_parent.add_child(new_preview)
 	

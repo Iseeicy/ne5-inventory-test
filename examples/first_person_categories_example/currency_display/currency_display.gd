@@ -1,5 +1,5 @@
 extends HBoxContainer
-class_name UICurrencyDisplay3D
+class_name FPCE_CurrencyDisplay
 
 var item: ItemInstance = null
 

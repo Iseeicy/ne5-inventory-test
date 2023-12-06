@@ -1,5 +1,5 @@
 extends PanelContainer
-class_name UIItemPreview3D
+class_name FPCE_ItemPreview
 
 var item: ItemInstance = null
 

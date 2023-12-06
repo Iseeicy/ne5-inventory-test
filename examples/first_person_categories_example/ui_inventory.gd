@@ -1,14 +1,14 @@
 extends Control
 
 @export var inventory: ItemInventory = null
-@export var sections: Array[UIItemSection3D] = []
+@export var sections: Array[FPCE_ItemSection] = []
 
 
 #
 #	Private Functions
 #
 
-func _find_supported_section(item: ItemInstance) -> UIItemSection3D:
+func _find_supported_section(item: ItemInstance) -> FPCE_ItemSection:
 	for section in sections:
 		if section.filter == null: 
 			return section

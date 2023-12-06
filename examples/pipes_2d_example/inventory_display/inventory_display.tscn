@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6iygd81rvha7"]
 
-[ext_resource type="Script" path="res://examples/pipes_2d_example/inventory_display/debug_inventory_display.gd" id="1_27kgy"]
+[ext_resource type="Script" path="res://examples/pipes_2d_example/inventory_display/inventory_display.gd" id="1_dt02i"]
 
 [node name="DebugInventoryDisplay" type="PanelContainer"]
 z_index = 10
@@ -12,7 +12,7 @@ offset_top = 32.0
 offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
-script = ExtResource("1_27kgy")
+script = ExtResource("1_dt02i")
 columns = 3
 
 [node name="GridContainer" type="GridContainer" parent="."]

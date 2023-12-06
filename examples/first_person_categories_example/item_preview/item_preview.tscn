@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d12nd3hy04ges"]
 
-[ext_resource type="Script" path="res://examples/first_person_categories_example/item_preview/item_preview.gd" id="1_0ltga"]
-[ext_resource type="Texture2D" uid="uid://c2cn8cvm27wkn" path="res://items/2d_soda/soda.png" id="2_4w6pu"]
+[ext_resource type="Script" path="res://examples/first_person_categories_example/item_preview/item_preview.gd" id="1_xgq43"]
+[ext_resource type="Texture2D" uid="uid://c2cn8cvm27wkn" path="res://items/2d_soda/soda.png" id="2_xf60a"]
 
 [node name="3DUIItemPreview" type="PanelContainer"]
-script = ExtResource("1_0ltga")
+script = ExtResource("1_xgq43")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -18,7 +18,7 @@ theme_override_constants/margin_right = 50
 [node name="PreviewSprite" type="TextureRect" parent="VBoxContainer/SpriteMargin"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("2_4w6pu")
+texture = ExtResource("2_xf60a")
 expand_mode = 4
 
 [node name="DisplayNameLabel" type="Label" parent="VBoxContainer"]

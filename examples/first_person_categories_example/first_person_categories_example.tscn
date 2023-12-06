@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://c7yv06xkeyju6"]
 
-[ext_resource type="Script" path="res://examples/first_person_categories_example/3d_ui_inventory.gd" id="1_2tfa2"]
-[ext_resource type="PackedScene" uid="uid://h06si7vi0ta5" path="res://examples/first_person_categories_example/item_section/3d_ui_item_section.tscn" id="2_ktws3"]
+[ext_resource type="Script" path="res://examples/first_person_categories_example/ui_inventory.gd" id="1_2tfa2"]
+[ext_resource type="PackedScene" uid="uid://h06si7vi0ta5" path="res://examples/first_person_categories_example/item_section/item_section.tscn" id="2_ktws3"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/filters/item_filter_by_category.gd" id="3_d6jyw"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="3_w2lf4"]
-[ext_resource type="PackedScene" uid="uid://qbskj3u3kykl" path="res://examples/first_person_categories_example/currency_display/3d_ui_currency_display.tscn" id="4_dd6tj"]
+[ext_resource type="PackedScene" uid="uid://qbskj3u3kykl" path="res://examples/first_person_categories_example/currency_display/currency_display.tscn" id="4_dd6tj"]
 [ext_resource type="Resource" uid="uid://c361652pr2j1r" path="res://items/2d_gem/2d_gem.tres" id="5_hdyw7"]
 [ext_resource type="Resource" uid="uid://dloljiru86tl2" path="res://items/2d_sword/2d_sword.tres" id="6_8183w"]
 [ext_resource type="Resource" uid="uid://cg8l6p2yoerro" path="res://items/2d_potion/2d_potion.tres" id="7_skobt"]
