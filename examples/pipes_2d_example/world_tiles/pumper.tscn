@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpmloy144qjrm"]
 
-[ext_resource type="Script" path="res://scenes/pumper.gd" id="1_iufrj"]
-[ext_resource type="PackedScene" uid="uid://r873c1ghelug" path="res://world_tiles/machine_block.tscn" id="2_qyfwy"]
-[ext_resource type="Texture2D" uid="uid://b7fcg7i3n1mtq" path="res://world_tiles/spewer.png" id="3_47wvg"]
+[ext_resource type="Script" path="res://examples/pipes_2d_example/world_tiles/pumper.gd" id="1_iufrj"]
+[ext_resource type="PackedScene" uid="uid://r873c1ghelug" path="res://examples/pipes_2d_example/world_tiles/machine_block.tscn" id="2_qyfwy"]
+[ext_resource type="Texture2D" uid="uid://b7fcg7i3n1mtq" path="res://examples/pipes_2d_example/world_tiles/spewer.png" id="3_47wvg"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="4_3ghag"]
-[ext_resource type="PackedScene" uid="uid://6iygd81rvha7" path="res://scenes/debug_inventory_display.tscn" id="5_2ka6m"]
+[ext_resource type="PackedScene" uid="uid://6iygd81rvha7" path="res://examples/pipes_2d_example/inventory_display/debug_inventory_display.tscn" id="5_2ka6m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_liyvi"]
 atlas = ExtResource("3_47wvg")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://qbskj3u3kykl"]
+
+[ext_resource type="Script" path="res://examples/first_person_categories_example/currency_display/3d_ui_currency_display.gd" id="1_45y3h"]
+[ext_resource type="Texture2D" uid="uid://c4it65p0cmjni" path="res://items/2d_coinkun/coinkun.png" id="2_rk2ro"]
+
+[node name="CurrencyDisplayUI3D" type="HBoxContainer"]
+script = ExtResource("1_45y3h")
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 2
+text = "0
+"
+
+[node name="CurrencyIcon" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_rk2ro")
+expand_mode = 2

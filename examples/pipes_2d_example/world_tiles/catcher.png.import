@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bik3e3p8ndh1v"
-path="res://.godot/imported/catcher.png-2123111c1c91dd35c41c173d62026c69.ctex"
+path="res://.godot/imported/catcher.png-78af12400d6e03c0f5d17b08b793418c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world_tiles/catcher.png"
-dest_files=["res://.godot/imported/catcher.png-2123111c1c91dd35c41c173d62026c69.ctex"]
+source_file="res://examples/pipes_2d_example/world_tiles/catcher.png"
+dest_files=["res://.godot/imported/catcher.png-78af12400d6e03c0f5d17b08b793418c.ctex"]
 
 [params]
 

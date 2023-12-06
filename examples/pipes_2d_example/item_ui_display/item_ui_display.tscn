@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bksjcse6lusu8"]
 
-[ext_resource type="Script" path="res://scenes/debug_item_ui_display.gd" id="1_t7wyl"]
-[ext_resource type="Texture2D" uid="uid://opi2v3s4eiuq" path="res://items/empty.png" id="2_q1udi"]
+[ext_resource type="Script" path="res://examples/pipes_2d_example/item_ui_display/debug_item_ui_display.gd" id="1_lskwi"]
+[ext_resource type="Texture2D" uid="uid://opi2v3s4eiuq" path="res://items/empty.png" id="2_evdis"]
 
 [node name="ItemUIDisplay" type="AspectRatioContainer"]
 size_flags_horizontal = 3
@@ -9,7 +9,7 @@ size_flags_vertical = 0
 stretch_mode = 0
 alignment_horizontal = 0
 alignment_vertical = 0
-script = ExtResource("1_t7wyl")
+script = ExtResource("1_lskwi")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
@@ -24,7 +24,7 @@ theme_override_constants/margin_bottom = 5
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("2_q1udi")
+texture = ExtResource("2_evdis")
 expand_mode = 4
 
 [node name="Label" type="Label" parent="."]

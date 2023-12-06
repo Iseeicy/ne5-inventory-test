@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://h06si7vi0ta5"]
 
-[ext_resource type="Script" path="res://script/test_3d/3d_ui_item_section.gd" id="1_wh21l"]
-[ext_resource type="PackedScene" uid="uid://d12nd3hy04ges" path="res://scenes/3d_ui_item_preview.tscn" id="2_51rhe"]
+[ext_resource type="Script" path="res://examples/first_person_categories_example/item_section/3d_ui_item_section.gd" id="1_wh21l"]
+[ext_resource type="PackedScene" uid="uid://d12nd3hy04ges" path="res://examples/first_person_categories_example/item_preview/3d_ui_item_preview.tscn" id="2_cmfhe"]
 
 [node name="ItemSectionUI3D" type="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 script = ExtResource("1_wh21l")
 section_name = "???"
-item_preview_scene = ExtResource("2_51rhe")
+item_preview_scene = ExtResource("2_cmfhe")
 
 [node name="HeaderPanel" type="PanelContainer" parent="."]
 layout_mode = 2

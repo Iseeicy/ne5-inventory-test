@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7yv06xkeyju6"]
+[gd_scene load_steps=13 format=3 uid="uid://c7yv06xkeyju6"]
 
-[ext_resource type="Script" path="res://script/test_3d/3d_ui_inventory.gd" id="1_2tfa2"]
-[ext_resource type="PackedScene" uid="uid://h06si7vi0ta5" path="res://scenes/3d_ui_item_section.tscn" id="2_ktws3"]
+[ext_resource type="Script" path="res://examples/first_person_categories_example/3d_ui_inventory.gd" id="1_2tfa2"]
+[ext_resource type="PackedScene" uid="uid://h06si7vi0ta5" path="res://examples/first_person_categories_example/item_section/3d_ui_item_section.tscn" id="2_ktws3"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/filters/item_filter_by_category.gd" id="3_d6jyw"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="3_w2lf4"]
+[ext_resource type="PackedScene" uid="uid://qbskj3u3kykl" path="res://examples/first_person_categories_example/currency_display/3d_ui_currency_display.tscn" id="4_dd6tj"]
 [ext_resource type="Resource" uid="uid://c361652pr2j1r" path="res://items/2d_gem/2d_gem.tres" id="5_hdyw7"]
 [ext_resource type="Resource" uid="uid://dloljiru86tl2" path="res://items/2d_sword/2d_sword.tres" id="6_8183w"]
 [ext_resource type="Resource" uid="uid://cg8l6p2yoerro" path="res://items/2d_potion/2d_potion.tres" id="7_skobt"]
@@ -56,28 +57,56 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2tfa2")
 inventory = NodePath("../PlayerInventory")
-sections = [NodePath("ItemSlots/ItemSectionUI3D"), NodePath("ItemSlots/ItemSectionUI3D2"), NodePath("ItemSlots/ItemSectionUI3D3")]
+sections = [NodePath("ItemSlots/HBox/ItemSectionUI3D"), NodePath("ItemSlots/HBox/ItemSectionUI3D2"), NodePath("ItemSlots/HBox/ItemSectionUI3D3")]
 
-[node name="ItemSlots" type="HBoxContainer" parent="InventoryUI3D"]
+[node name="ItemSlots" type="MarginContainer" parent="InventoryUI3D"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
 
-[node name="ItemSectionUI3D" parent="InventoryUI3D/ItemSlots" instance=ExtResource("2_ktws3")]
+[node name="HBox" type="HBoxContainer" parent="InventoryUI3D/ItemSlots"]
+layout_mode = 2
+
+[node name="ItemSectionUI3D" parent="InventoryUI3D/ItemSlots/HBox" instance=ExtResource("2_ktws3")]
 layout_mode = 2
 section_name = "Tools"
 filter = SubResource("Resource_8si74")
 
-[node name="ItemSectionUI3D2" parent="InventoryUI3D/ItemSlots" instance=ExtResource("2_ktws3")]
+[node name="ItemSectionUI3D2" parent="InventoryUI3D/ItemSlots/HBox" instance=ExtResource("2_ktws3")]
 layout_mode = 2
 section_name = "Materials"
 filter = SubResource("Resource_yccqf")
 
-[node name="ItemSectionUI3D3" parent="InventoryUI3D/ItemSlots" instance=ExtResource("2_ktws3")]
+[node name="ItemSectionUI3D3" parent="InventoryUI3D/ItemSlots/HBox" instance=ExtResource("2_ktws3")]
 layout_mode = 2
 section_name = "Consumable"
 filter = SubResource("Resource_emt5b")
+
+[node name="ItemCurrency" type="MarginContainer" parent="InventoryUI3D"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="InventoryUI3D/ItemCurrency"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CurrencyDisplayUI3D" parent="InventoryUI3D/ItemCurrency/VBox" instance=ExtResource("4_dd6tj")]
+layout_mode = 2
 
 [node name="PlayerInventory" type="Node" parent="."]
 script = ExtResource("3_w2lf4")

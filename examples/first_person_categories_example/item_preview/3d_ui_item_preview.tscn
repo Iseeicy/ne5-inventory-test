@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d12nd3hy04ges"]
 
-[ext_resource type="Script" path="res://script/test_3d/item_preview.gd" id="1_0ltga"]
+[ext_resource type="Script" path="res://examples/first_person_categories_example/item_preview/item_preview.gd" id="1_0ltga"]
 [ext_resource type="Texture2D" uid="uid://c2cn8cvm27wkn" path="res://items/2d_soda/soda.png" id="2_4w6pu"]
 
 [node name="3DUIItemPreview" type="PanelContainer"]

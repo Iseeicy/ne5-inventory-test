@@ -11,7 +11,7 @@ extends PanelContainer
 @export var inventory: ItemInventory = null
 
 ## The scene that extends DebugItemUIDisplay to spawn for each slot
-@export var item_slot_scene: PackedScene = preload("res://scenes/item_ui_display.tscn")
+@export var item_slot_scene: PackedScene = preload("res://examples/pipes_2d_example/inventory_display/debug_inventory_display.tscn")
 
 #
 #	Private Variables

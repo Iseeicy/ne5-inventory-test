@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkpm5qcgfs8vp"
-path="res://.godot/imported/block.png-76658b73b242f3d2f3950454b6b4c63f.ctex"
+uid="uid://b7fcg7i3n1mtq"
+path="res://.godot/imported/spewer.png-508c96375fdce6fbbcfd9566b3a5d4fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world_tiles/block.png"
-dest_files=["res://.godot/imported/block.png-76658b73b242f3d2f3950454b6b4c63f.ctex"]
+source_file="res://examples/pipes_2d_example/world_tiles/spewer.png"
+dest_files=["res://.godot/imported/spewer.png-508c96375fdce6fbbcfd9566b3a5d4fd.ctex"]
 
 [params]
 

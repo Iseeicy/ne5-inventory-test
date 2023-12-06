@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c50ntlb7axmqt"
-path="res://.godot/imported/machine_block.png-f4375b9426bd3f03d5f4e312404b9d6c.ctex"
+uid="uid://dkpm5qcgfs8vp"
+path="res://.godot/imported/block.png-c832d87a84c341e30ff14d4f3460624e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world_tiles/machine_block.png"
-dest_files=["res://.godot/imported/machine_block.png-f4375b9426bd3f03d5f4e312404b9d6c.ctex"]
+source_file="res://examples/pipes_2d_example/world_tiles/block.png"
+dest_files=["res://.godot/imported/block.png-c832d87a84c341e30ff14d4f3460624e.ctex"]
 
 [params]
 

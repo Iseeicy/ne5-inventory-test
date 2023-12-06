@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dddx3s3pp6f55"]
 
-[ext_resource type="Texture2D" uid="uid://bik3e3p8ndh1v" path="res://world_tiles/catcher.png" id="1_fgjhs"]
+[ext_resource type="Texture2D" uid="uid://bik3e3p8ndh1v" path="res://examples/pipes_2d_example/world_tiles/catcher.png" id="1_fgjhs"]
 [ext_resource type="Script" path="res://addons/netengine5/net.bobbo.item/item_inventory.gd" id="2_w514e"]
-[ext_resource type="PackedScene" uid="uid://6iygd81rvha7" path="res://scenes/debug_inventory_display.tscn" id="3_pnfqc"]
+[ext_resource type="PackedScene" uid="uid://6iygd81rvha7" path="res://examples/pipes_2d_example/inventory_display/debug_inventory_display.tscn" id="3_pnfqc"]
 
 [sub_resource type="GDScript" id="GDScript_oom6s"]
 script/source = "extends StaticBody2D
